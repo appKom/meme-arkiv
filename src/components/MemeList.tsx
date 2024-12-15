@@ -49,7 +49,7 @@ const MemeList = () => {
   );
 
   if (isError) {
-    return <div>Error fetching memes: {error.message}</div>;
+    return <div>Ops det skjedde en feil: {error.message}</div>;
   }
 
   return (
@@ -80,7 +80,12 @@ const MemeList = () => {
               }
             })
           )}
-      {isFetchingNextPage && <div>Laster mer memes...</div>}
+      {isFetchingNextPage &&
+        Array.from({ length: 2 }, (_, index) => (
+          <div key={index} className="w-full flex flex-col items-center">
+            <MemeCardSkeleton />
+          </div>
+        ))}
       {!hasNextPage && <div>{`Ingen flere memes å loade :(`}</div>}
     </div>
   );
