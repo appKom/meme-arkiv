@@ -1,14 +1,20 @@
 import { MemeType } from "../lib/types";
 import { formatSlackDate } from "../lib/date";
+
+import Image from "next/image";
 import { SlackReaction } from "./SlackReactions";
 
 export const MemeCard = ({ meme }: { meme: MemeType }) => {
+  console.log(meme);
+
   return (
     <article className="flex w-full max-w-4xl flex-col items-center gap-4 border-b border-gray-200 bg-white px-4 py-3 shadow-md">
       <div className="flex w-full flex-row justify-between px-2">
         <div className="flex flex-row gap-5">
-          <img
+          <Image
             className="h-12 w-12 rounded-lg"
+            height={50}
+            width={50}
             src={meme.authorImage}
             alt={meme.author}
           />
@@ -19,9 +25,11 @@ export const MemeCard = ({ meme }: { meme: MemeType }) => {
         </div>
       </div>
       {meme.type === "image" ? (
-        <img
+        <Image
           src={meme.url}
           alt={meme.channelName + "meme"}
+          height={600}
+          width={600}
           className="max-h-[600px] w-full object-contain"
         />
       ) : (

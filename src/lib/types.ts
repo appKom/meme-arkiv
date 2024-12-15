@@ -1,6 +1,6 @@
 export type MemeType = {
   id: string;
-  name: number;
+  name: string;
   author: string;
   authorImage: string;
   date: string;

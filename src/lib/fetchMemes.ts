@@ -1,7 +1,18 @@
 import { MemeType } from "./types";
 
-export const fetchMemes = async (page: number): Promise<MemeType[]> => {
-  const apiUrl = `/api/memes?page=${page}`;
+export interface FetchMemesResponse {
+  page: number;
+  limit: number;
+  totalPages: number;
+  totalCount: number;
+  data: MemeType[];
+}
+
+export const fetchMemes = async (
+  page: number,
+  limit: number = 10
+): Promise<FetchMemesResponse> => {
+  const apiUrl = `/api/memes?page=${page}&limit=${limit}`;
 
   const response = await fetch(apiUrl, {
     headers: {
