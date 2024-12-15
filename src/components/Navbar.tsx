@@ -29,14 +29,14 @@ const Navbar = () => {
             <ThemeToggle />
             <Link
               href="/"
-              className="flex items-center transition-opacity duration-300 hover:opacity-80 hidden md:flex"
+              className="items-center transition-opacity duration-300 hover:opacity-80 hidden md:flex"
             >
               <Image
                 src="/mkvg_small.png"
                 height={100}
                 width={100}
                 alt="MKVG Logo"
-                className="h-16 w-16 py-3 object-cover bg-white/80 rounded-full"
+                className="h-16 w-16 py-3 object-cover bg-white/70 rounded-full"
               />
             </Link>
           </div>
