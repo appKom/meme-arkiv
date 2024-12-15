@@ -21,7 +21,7 @@ const Navbar = () => {
             <img
               src="/mkvg_small.png"
               alt="MKVG Logo"
-              className="h-24 w-auto"
+              className="h-24 w-auto py-3"
             />
           </a>
         </div>

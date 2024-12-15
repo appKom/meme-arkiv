@@ -10,7 +10,7 @@ export const SlackReaction = ({
   name: string;
 }) => {
   return (
-    <div className="flex min-w-max items-center gap-2 rounded-full border px-3 py-1 dark:border-gray-700 dark:text-white">
+    <div className="flex min-w-max items-center gap-2 rounded-full border px-3 py-1">
       {url ? (
         <img src={url} className="max-h-6" alt={name} />
       ) : (

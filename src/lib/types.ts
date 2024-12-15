@@ -9,7 +9,7 @@ export type MemeType = {
   reactions: {
     name: string;
     count: number;
-    url: string;
+    url: string | null;
   }[];
   channelName: string;
 };
