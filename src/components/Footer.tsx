@@ -1,4 +1,5 @@
 import { Mail, ExternalLink, Bug } from "lucide-react";
+import Image from "next/image";
 import { SiSlack, SiFacebook, SiInstagram, SiGithub } from "react-icons/si";
 
 const footerLinks = [
@@ -81,7 +82,7 @@ export default function Footer() {
               target="_blank"
               className="transition hover:opacity-50"
             >
-              <img
+              <Image
                 src={"/Online_bla.svg"}
                 alt="Online logo"
                 width={128}

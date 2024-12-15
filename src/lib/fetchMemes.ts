@@ -1,11 +1,11 @@
 import { MemeType } from "./types";
 
-export const fetchMemes = async (amount: number): Promise<MemeType[]> => {
-  const apiUrl = `${import.meta.env.VITE_BACKEND_URL}/latest-memes?count=${amount}`;
+export const fetchMemes = async (page: number): Promise<MemeType[]> => {
+  const apiUrl = `/api/memes?page=${page}`;
 
   const response = await fetch(apiUrl, {
     headers: {
-      "x-api-key": import.meta.env.VITE_BACKEND_API_KEY,
+      "x-api-key": "",
     },
   });
 
