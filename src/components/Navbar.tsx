@@ -29,7 +29,7 @@ const Navbar = () => {
             <ThemeToggle />
             <Link
               href="/"
-              className="flex items-center transition-opacity duration-300 hover:opacity-80"
+              className="flex items-center transition-opacity duration-300 hover:opacity-80 hidden md:flex"
             >
               <Image
                 src="/mkvg_small.png"
