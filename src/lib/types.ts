@@ -5,6 +5,7 @@ export type MemeType = {
   authorImage: string;
   date: string;
   url: string;
+  text?: string;
   type: "image" | "video";
   reactions: {
     name: string;

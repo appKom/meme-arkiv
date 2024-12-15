@@ -5,6 +5,8 @@ import Image from "next/image";
 import { SlackReaction } from "./SlackReactions";
 
 export const MemeCard = ({ meme }: { meme: MemeType }) => {
+  console.log(meme.text);
+
   return (
     <article className="flex w-full max-w-4xl flex-col items-center gap-4 border rounded-lg border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-800 px-4 py-3 shadow-lg">
       <div className="flex w-full flex-row justify-between px-2">
@@ -22,7 +24,11 @@ export const MemeCard = ({ meme }: { meme: MemeType }) => {
           </div>
         </div>
       </div>
-
+      {meme.text && (
+        <p className="text-xl md:text-2xl break-words font-semibold w-full p-2">
+          {meme.text}
+        </p>
+      )}
       {meme.url.endsWith("gif") ? (
         <img
           src={meme.url}
