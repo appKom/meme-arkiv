@@ -76,8 +76,8 @@ const MemeList = () => {
           }
         })
       )}
-      {isFetchingNextPage && <div>Loading more memes...</div>}
-      {!hasNextPage && <div>No more memes to load.</div>}
+      {isFetchingNextPage && <div>Laster mer memes...</div>}
+      {!hasNextPage && <div>{`Ingen flere memes å loade :(`}</div>}
     </div>
   );
 };

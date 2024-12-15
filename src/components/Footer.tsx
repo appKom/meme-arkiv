@@ -26,7 +26,7 @@ export default function Footer() {
             <h2 className="text-2xl font-bold">Meme Arkiv</h2>
             <a
               href="mailto:onlinefondet@online.ntnu.no"
-              className="hover:text-online-orange flex cursor-pointer items-center gap-2 transition-colors"
+              className="hover:text-orange-600 flex cursor-pointer items-center gap-2 transition-colors"
             >
               <Mail size={18} />
               appkom@online.ntnu.no
@@ -55,7 +55,7 @@ export default function Footer() {
                 <a
                   href={link.link}
                   key={index}
-                  className="hover:text-online-orange cursor-pointer transition"
+                  className="hover:text-orange-600 cursor-pointer transition"
                   aria-label={link.name}
                 >
                   {link.icon}
@@ -66,7 +66,7 @@ export default function Footer() {
               <p>Skjedd en feil?</p>
               <a
                 href="mailto:appkom@online.ntnu.no"
-                className="hover:text-online-orange flex items-center justify-center space-x-1 transition hover:underline md:justify-end"
+                className="hover:text-orange-600 flex items-center justify-center space-x-1 transition hover:underline md:justify-end"
               >
                 <span>Ta kontakt med Appkom</span>
                 <ExternalLink size={14} />
