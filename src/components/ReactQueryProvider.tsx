@@ -4,19 +4,12 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import dynamic from "next/dynamic";
-
-const ReactQueryDevtoolsProduction = dynamic(() =>
-  import("@tanstack/react-query-devtools/production").then((d) => ({
-    default: d.ReactQueryDevtools,
-  }))
-);
 
 function makeQueryClient() {
   return new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 60 * 1000,
+        staleTime: 60 * 1000 * 5,
       },
     },
   });
@@ -41,9 +34,6 @@ export function ReactQueryProvider({
   const queryClient = getQueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      {children}
-      <ReactQueryDevtoolsProduction />
-    </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 }
