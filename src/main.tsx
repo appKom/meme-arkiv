@@ -4,11 +4,16 @@ import "./index.css";
 import App from "./App.tsx";
 import Navbar from "./components/Navbar.tsx";
 import Footer from "./components/Footer.tsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Navbar />
-    <App />
-    <Footer />
+    <QueryClientProvider client={queryClient}>
+      <Navbar />
+      <App />
+      <Footer />
+    </QueryClientProvider>
   </StrictMode>
 );
