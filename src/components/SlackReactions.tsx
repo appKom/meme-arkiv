@@ -10,9 +10,9 @@ export const SlackReaction = ({
   name: string;
 }) => {
   return (
-    <div className="flex min-w-max items-center gap-2 rounded-full border px-3 py-1">
+    <div className="flex items-center py-2 flex-row justify-center rounded-full border ">
       {url ? (
-        <img src={url} className="max-h-6" alt={name} />
+        <img src={url} className="h-6" alt={name} />
       ) : (
         <EmojiComponent name={name} />
       )}

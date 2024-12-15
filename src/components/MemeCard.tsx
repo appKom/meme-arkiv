@@ -41,7 +41,7 @@ export const MemeCard = ({ meme }: { meme: MemeType }) => {
       )}
 
       {meme.reactions.length > 0 && (
-        <div className="flex w-full flex-grow justify-start gap-2 overflow-hidden p-2">
+        <div className="grid w-full grid-cols-2 gap-2 p-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {meme.reactions.map(
             (reaction, index) =>
               reaction.url && (
