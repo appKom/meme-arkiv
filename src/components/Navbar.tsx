@@ -36,7 +36,7 @@ const Navbar = () => {
                 height={100}
                 width={100}
                 alt="MKVG Logo"
-                className="h-16 w-16 py-3 object-cover bg-white rounded-full"
+                className="h-16 w-16 py-3 object-cover bg-white/80 rounded-full"
               />
             </Link>
           </div>
