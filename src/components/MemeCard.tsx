@@ -22,20 +22,26 @@ export const MemeCard = ({ meme }: { meme: MemeType }) => {
           </div>
         </div>
       </div>
-      {meme.type === "image" ? (
+
+      {meme.url.endsWith("gif") ? (
+        <img
+          src={meme.url}
+          alt={meme.channelName + " meme"}
+          className="max-h-[600px] w-full object-contain"
+        />
+      ) : meme.type === "image" ? (
         <Image
           src={meme.url}
-          alt={meme.channelName + "meme"}
+          alt={meme.channelName + " meme"}
           height={600}
           width={600}
           className="max-h-[600px] w-full object-contain"
         />
       ) : (
-        <video
-          src={meme.url}
-          className="max-h-[600px] w-full object-contain"
-          controls
-        />
+        <video controls className="w-full h-auto" preload="metadata">
+          <source src={meme.url} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       )}
 
       {meme.reactions.length > 0 && (
