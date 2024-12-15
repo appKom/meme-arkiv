@@ -90,13 +90,13 @@ const MemePage = () => {
       <div className="comments">
         <HeaderText title="Kommentarer" />
 
-        {comments.length === 0 && <p>No comments yet.</p>}
+        {comments.length === 0 && <p>Ingen kommentarer.</p>}
 
         {comments.map((comment) => (
           <MemeCard key={comment.commentId} meme={comment} redirect={false} />
         ))}
 
-        {isFetchingNextPage && <div>Loading more comments...</div>}
+        {isFetchingNextPage && <div>Laster mer kommentarer...</div>}
 
         <div ref={loadMoreRef} />
       </div>
