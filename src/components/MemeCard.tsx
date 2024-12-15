@@ -22,12 +22,12 @@ export const MemeCard = ({ meme }: { meme: MemeType }) => {
         <img
           src={meme.url}
           alt={meme.channelName + "meme"}
-          className="max-h-96 w-full object-contain"
+          className="max-h-[600px] w-full object-contain"
         />
       ) : (
         <video
           src={meme.url}
-          className="max-h-96 w-full object-contain"
+          className="max-h-[600px] w-full object-contain"
           controls
         />
       )}
