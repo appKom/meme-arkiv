@@ -38,7 +38,12 @@ export const MemeCard = ({ meme }: { meme: MemeType }) => {
           className="max-h-[600px] w-full object-contain"
         />
       ) : (
-        <video controls className="w-full h-auto" preload="metadata">
+        <video
+          controls
+          className="w-full h-auto"
+          preload="metadata"
+          style={{ display: "block" }}
+        >
           <source src={meme.url} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
