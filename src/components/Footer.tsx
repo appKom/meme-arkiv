@@ -1,6 +1,8 @@
+"use client";
 import { Mail, ExternalLink, Bug } from "lucide-react";
 import Image from "next/image";
 import { SiSlack, SiFacebook, SiInstagram, SiGithub } from "react-icons/si";
+import { useTheme } from "./ThemeContext";
 
 const footerLinks = [
   { name: "Slack", icon: <SiSlack />, link: "https://onlinentnu.slack.com/" },
@@ -18,8 +20,12 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const onlineLogoSrc =
+    theme === "dark" ? "/Online_hvit.svg" : "/Online_bla.svg";
+
   return (
-    <footer className="mt-24 border-t border-gray-300 bg-zinc-50 px-4 py-12 text-gray-700 md:px-6 lg:px-8">
+    <footer className="px-4 py-12 mt-24 text-gray-700 bg-zinc-50 border-t border-gray-300 dark:text-gray-300 dark:border-gray-700 md:px-6 lg:px-8 dark:bg-gray-950">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col items-center justify-between space-y-8 md:flex-row md:space-y-0">
           <div className="flex flex-col items-center space-y-4 md:items-start">
@@ -37,11 +43,11 @@ export default function Footer() {
             href="https://docs.google.com/forms/d/e/1FAIpQLScvjEqVsiRIYnVqCNqbH_-nmYk3Ux6la8a7KZzsY3sJDbW-iA/viewform"
             target="_blank"
             rel="noreferrer"
-            className="flex h-full max-h-min items-center justify-center gap-3 rounded-lg bg-[#f3f4f6] p-1.5"
+            className="flex items-center justify-center h-full gap-3 p-1.5 bg-[#f3f4f6] dark:bg-[#212f4d] rounded-lg max-h-min"
           >
-            <div className="p-1 text-center text-gray-600">
+            <div className="p-1 text-center text-gray-600 dark:text-white">
               <div className="flex items-center justify-center gap-2">
-                <p className="text-lg font-semibold">Debug</p>
+                <p className="font-semibold text-lg">Debug</p>
                 <Bug className="w-5" />
               </div>
               <p className="text-sm">Opplevd noe ugreit?</p>
@@ -83,7 +89,7 @@ export default function Footer() {
               className="transition hover:opacity-50"
             >
               <Image
-                src={"/Online_bla.svg"}
+                src={onlineLogoSrc}
                 alt="Online logo"
                 width={128}
                 height={34}

@@ -6,7 +6,7 @@ import { SlackReaction } from "./SlackReactions";
 
 export const MemeCard = ({ meme }: { meme: MemeType }) => {
   return (
-    <article className="flex w-full max-w-4xl flex-col items-center gap-4 border-b border-gray-200 bg-white px-4 py-3 shadow-md">
+    <article className="flex w-full max-w-4xl flex-col items-center gap-4 border rounded-lg border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-800 px-4 py-3 shadow-lg">
       <div className="flex w-full flex-row justify-between px-2">
         <div className="flex flex-row gap-5">
           <Image
