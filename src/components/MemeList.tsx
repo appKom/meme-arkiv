@@ -4,6 +4,8 @@ import { fetchMemes, FetchMemesResponse } from "@/lib/fetchMemes";
 import { MemeCard } from "./MemeCard";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useRef, useCallback } from "react";
+import { MemeType } from "@/lib/types";
+import MemeCardSkeleton from "./MemeCardSkeleton";
 
 const MemeList = () => {
   const limit = 10;
@@ -46,36 +48,38 @@ const MemeList = () => {
     [isLoading, isFetchingNextPage, fetchNextPage, hasNextPage]
   );
 
-  if (isLoading) {
-    return <div>Loading memes...</div>;
-  }
-
   if (isError) {
     return <div>Error fetching memes: {error.message}</div>;
   }
 
   return (
     <div className="flex flex-col items-center gap-4">
-      {data?.pages.map((page, pageIndex) =>
-        page.data.map((meme, memeIndex) => {
-          if (
-            pageIndex === data.pages.length - 1 &&
-            memeIndex === page.data.length - 1
-          ) {
-            return (
-              <div
-                ref={lastMemeRef}
-                key={meme.id}
-                className="w-full flex flex-col items-center"
-              >
-                <MemeCard meme={meme} />
-              </div>
-            );
-          } else {
-            return <MemeCard key={meme.id} meme={meme} />;
-          }
-        })
-      )}
+      {isLoading
+        ? Array.from({ length: limit }, (_, index) => (
+            <div key={index} className="w-full flex flex-col items-center">
+              <MemeCardSkeleton />
+            </div>
+          ))
+        : data?.pages.map((page: FetchMemesResponse, pageIndex: number) =>
+            page.data.map((meme: MemeType, memeIndex: number) => {
+              if (
+                pageIndex === data.pages.length - 1 &&
+                memeIndex === page.data.length - 1
+              ) {
+                return (
+                  <div
+                    ref={lastMemeRef}
+                    key={meme.id}
+                    className="w-full flex flex-col items-center"
+                  >
+                    <MemeCard meme={meme} />
+                  </div>
+                );
+              } else {
+                return <MemeCard key={meme.id} meme={meme} />;
+              }
+            })
+          )}
       {isFetchingNextPage && <div>Laster mer memes...</div>}
       {!hasNextPage && <div>{`Ingen flere memes å loade :(`}</div>}
     </div>
