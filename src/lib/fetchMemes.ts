@@ -14,9 +14,11 @@ export const fetchMemes = async (
 ): Promise<FetchMemesResponse> => {
   const apiUrl = `/api/memes?page=${page}&limit=${limit}`;
 
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+
   const response = await fetch(apiUrl, {
     headers: {
-      "x-api-key": "",
+      "x-api-key": apiKey || "",
     },
   });
 

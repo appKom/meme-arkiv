@@ -6,6 +6,15 @@ import sql from "mssql";
 
 export async function GET(request: Request): Promise<Response> {
   try {
+    const apiKey = request.headers.get("x-api-key");
+
+    if (apiKey !== process.env.API_KEY) {
+      return new Response(JSON.stringify({ message: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const { searchParams } = new URL(request.url);
     const pageParam = searchParams.get("page");
     const limitParam = searchParams.get("limit");
