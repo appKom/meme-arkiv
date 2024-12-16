@@ -85,17 +85,9 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
 
       {meme.type !== "video" && redirect && meme.reactions.length > 0 && (
         <div className="grid w-full grid-cols-2 gap-2 p-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {meme.reactions.map(
-            (reaction, index) =>
-              reaction.url && (
-                <SlackReaction
-                  key={index}
-                  url={reaction.url}
-                  count={reaction.count}
-                  name={reaction.name}
-                />
-              )
-          )}
+          {meme.reactions.map((reaction, index) => (
+            <SlackReaction key={index} reaction={reaction} />
+          ))}
         </div>
       )}
 
@@ -125,17 +117,9 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
           <Link href={`/meme/${meme.id}`}>
             {meme.reactions.length > 0 && (
               <div className="grid w-full grid-cols-2 gap-2 p-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                {meme.reactions.map(
-                  (reaction, index) =>
-                    reaction.url && (
-                      <SlackReaction
-                        key={index}
-                        url={reaction.url}
-                        count={reaction.count}
-                        name={reaction.name}
-                      />
-                    )
-                )}
+                {meme.reactions.map((reaction, index) => (
+                  <SlackReaction key={index} reaction={reaction} />
+                ))}
               </div>
             )}
             {meme.amtComments > 0 && (
@@ -157,17 +141,9 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
           {meme.type === "video" && videoElement}
           {meme.reactions.length > 0 && (
             <div className="grid w-full grid-cols-2 gap-2 p-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-              {meme.reactions.map(
-                (reaction, index) =>
-                  reaction.url && (
-                    <SlackReaction
-                      key={index}
-                      url={reaction.url}
-                      count={reaction.count}
-                      name={reaction.name}
-                    />
-                  )
-              )}
+              {meme.reactions.map((reaction, index) => (
+                <SlackReaction key={index} reaction={reaction} />
+              ))}
             </div>
           )}
         </div>

@@ -7,13 +7,15 @@ export type MemeType = {
   url?: string;
   text?: string;
   type: "image" | "video" | "text";
-  reactions: {
-    name: string;
-    count: number;
-    url: string | null;
-  }[];
+  reactions: ReactionType[];
   amtComments: number;
   channelName: string;
+};
+
+export type ReactionType = {
+  name: string;
+  count: number;
+  url: string | null;
 };
 
 export type CommentType = {
@@ -26,11 +28,7 @@ export type CommentType = {
   url: string;
   text?: string;
   type: "image" | "video";
-  reactions: {
-    name: string;
-    count: number;
-    url: string | null;
-  }[];
+  reactions: ReactionType[];
   amtComments: number;
   channelName: string;
 };
