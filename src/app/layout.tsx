@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { ReactQueryProvider } from "@/components/ReactQueryProvider";
 import { ThemeProvider } from "@/components/ThemeContext";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Meme Arkiv",
@@ -27,6 +28,7 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </ReactQueryProvider>
+        <Analytics />
       </body>
     </html>
   );
