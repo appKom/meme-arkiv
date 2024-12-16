@@ -3,7 +3,13 @@ import DOMPurify from "dompurify";
 
 export const useFormattedSlackText = (text: string) => {
   // Sanitize the text to prevent XSS attacks
-  const sanitizedText = DOMPurify.sanitize(text);
+
+  const mentionRegex = /<@U[A-Z0-9]+>/g;
+  const textWithUsernames = text.replace(mentionRegex, () => {
+    return '<span style="color: purple;">@Someone</span>';
+  });
+
+  const sanitizedText = DOMPurify.sanitize(textWithUsernames);
 
   // Convert shortnames to Unicode emojis
   const unicodeText = joypixels.shortnameToUnicode(sanitizedText);
