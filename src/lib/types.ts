@@ -4,14 +4,15 @@ export type MemeType = {
   author: string;
   authorImage: string;
   date: string;
-  url: string;
+  url?: string;
   text?: string;
-  type: "image" | "video";
+  type: "image" | "video" | "text";
   reactions: {
     name: string;
     count: number;
     url: string | null;
   }[];
+  amtComments: number;
   channelName: string;
 };
 
@@ -30,6 +31,7 @@ export type CommentType = {
     count: number;
     url: string | null;
   }[];
+  amtComments: number;
   channelName: string;
 };
 

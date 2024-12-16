@@ -66,6 +66,7 @@ export async function GET(request: Request): Promise<Response> {
         Type, 
         Text, 
         Reactions, 
+        AmtComments,
         ChannelName
       FROM MediaFiles
       WHERE Id = @Id
@@ -108,7 +109,6 @@ export async function GET(request: Request): Promise<Response> {
           Text, 
           Reactions, 
           ChannelName, 
-          FileUrl, 
           UpdatedAt
         FROM Comments
         WHERE PostId = @PostId

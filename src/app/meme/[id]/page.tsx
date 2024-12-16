@@ -71,13 +71,13 @@ const MemePage = () => {
     };
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
-  if (isError || !meme) {
+  if (isError) {
     return <div>Error: {error?.message}</div>;
   }
 
   return (
     <main className="mt-24 min-h-screen px-5 flex flex-col items-center gap-4">
-      {isLoading ? (
+      {isLoading || !meme ? (
         Array.from({ length: 1 }, (_, index) => (
           <div key={index} className="w-full flex flex-col items-center">
             <MemeCardSkeleton />
@@ -87,16 +87,21 @@ const MemePage = () => {
         <MemeCard key={meme.id} meme={meme} redirect={false} />
       )}
 
-      <div className="comments">
+      <div className="">
         <HeaderText title="Kommentarer" />
 
-        {comments.length === 0 && <p>Ingen kommentarer.</p>}
+        {comments && comments.length === 0 && <p>Ingen kommentarer.</p>}
 
         {comments.map((comment) => (
           <MemeCard key={comment.commentId} meme={comment} redirect={false} />
         ))}
 
-        {isFetchingNextPage && <div>Laster mer kommentarer...</div>}
+        {isFetchingNextPage &&
+          Array.from({ length: 2 }, (_, index) => (
+            <div key={index} className="w-full flex flex-col items-center">
+              <MemeCardSkeleton />
+            </div>
+          ))}
 
         <div ref={loadMoreRef} />
       </div>

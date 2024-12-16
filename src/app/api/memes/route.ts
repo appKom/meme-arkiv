@@ -31,7 +31,7 @@ export async function GET(request: Request): Promise<Response> {
       .input("ChannelName", sql.NVarChar, channel)
       .input("Limit", sql.Int, limit)
       .input("Offset", sql.Int, offset).query(`
-        SELECT Id, Name, Author, Username, AuthorImage, Date, Url, Type, Reactions, ChannelName, Text
+        SELECT Id, Name, Author, Username, AuthorImage, Date, Url, Type, Reactions, ChannelName, Text, AmtComments
         FROM MediaFiles
         WHERE ChannelName = @ChannelName
         ORDER BY Date DESC
