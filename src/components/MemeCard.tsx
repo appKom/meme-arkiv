@@ -4,6 +4,8 @@ import { SlackReaction } from "./SlackReactions";
 import Image from "next/image";
 import Link from "next/link";
 import { useFormattedSlackText } from "@/lib/text";
+import ReactMarkdown from "react-markdown";
+import MarkdownComponents from "@/components/Markdown";
 
 interface Props {
   meme: MemeType | CommentType;
@@ -43,13 +45,19 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
         </div>
       </div>
       {meme.text && (
-        <article className="flex flex-col gap-2">
-          <p className="text-xl md:text-2xl break-words font-semibold w-full p-2">
+        <article className="flex flex-col">
+          <ReactMarkdown
+            components={MarkdownComponents}
+            className="w-full font-bold break-words"
+          >
             {formatedSlackText.headerLine}
-          </p>
-          <p className="text-xl md:text-2xl break-words w-full p-2">
+          </ReactMarkdown>
+          <ReactMarkdown
+            components={MarkdownComponents}
+            className="w-full break-words"
+          >
             {formatedSlackText.formattedText}
-          </p>
+          </ReactMarkdown>
         </article>
       )}
       {meme.url && (

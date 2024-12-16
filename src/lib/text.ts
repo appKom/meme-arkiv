@@ -46,7 +46,7 @@ export const useFormattedSlackText = (text: string) => {
         : line + (index < filteredLines.length - 1 ? "\n" : "");
     })
     .join("")
-    .replace(/\n/g, "<br />");
+    .replace(/\n/g, "");
 
   return { headerLine, formattedText };
 };
