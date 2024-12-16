@@ -28,7 +28,7 @@ const Navbar = () => {
           <div className="flex flex-row gap-4 items-center">
             <ThemeToggle />
             <a
-              href="/https://app.slack.com/client/T03S8TX18/C01DG6JFNSG"
+              href="https://app.slack.com/client/T03S8TX18/C01DG6JFNSG"
               className="items-center transition-opacity duration-300 hover:opacity-80 hidden md:flex"
             >
               <Image
