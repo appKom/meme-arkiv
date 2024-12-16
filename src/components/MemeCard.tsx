@@ -3,7 +3,7 @@ import { MemeType, CommentType, isMemeType } from "@/lib/types";
 import { SlackReaction } from "./SlackReactions";
 import Image from "next/image";
 import Link from "next/link";
-import { parseSlackText } from "@/lib/parseSlackText";
+import { useFormattedSlackText } from "@/lib/text";
 
 interface Props {
   meme: MemeType | CommentType;
@@ -11,6 +11,8 @@ interface Props {
 }
 
 export const MemeCard = ({ meme, redirect = true }: Props) => {
+  const formatedSlackText = useFormattedSlackText(meme.text || "");
+
   const videoElement = (
     <video
       controls
@@ -41,9 +43,14 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
         </div>
       </div>
       {meme.text && (
-        <p className="text-xl md:text-2xl break-words font-semibold w-full p-2">
-          {parseSlackText(meme.text)}
-        </p>
+        <article className="flex flex-col gap-2">
+          <p className="text-xl md:text-2xl break-words font-semibold w-full p-2">
+            {formatedSlackText.headerLine}
+          </p>
+          <p className="text-xl md:text-2xl break-words w-full p-2">
+            {formatedSlackText.formattedText}
+          </p>
+        </article>
       )}
       {meme.url && (
         <>

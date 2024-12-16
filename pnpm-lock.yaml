@@ -14,9 +14,15 @@ dependencies:
   '@tanstack/react-query-devtools':
     specifier: ^5.62.7
     version: 5.62.7(@tanstack/react-query@5.62.7)(react@19.0.0)
+  dompurify:
+    specifier: ^3.2.3
+    version: 3.2.3
   emoji-dictionary:
     specifier: ^1.0.11
     version: 1.0.11
+  emoji-toolkit:
+    specifier: ^9.0.1
+    version: 9.0.1
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -836,6 +842,12 @@ packages:
       '@types/node': 20.17.10
     dev: true
 
+  /@types/trusted-types@2.0.7:
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+    requiresBuild: true
+    dev: false
+    optional: true
+
   /@typescript-eslint/eslint-plugin@8.18.0(@typescript-eslint/parser@8.18.0)(eslint@9.17.0)(typescript@5.7.2):
     resolution: {integrity: sha512-NR2yS7qUqCL7AIxdJUQf2MKKNDVNaig/dEB0GBLU7D+ZdHgK1NoH/3wsgO3OnPVipn51tG3MAwaODEGil70WEw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -1434,6 +1446,12 @@ packages:
       esutils: 2.0.3
     dev: true
 
+  /dompurify@3.2.3:
+    resolution: {integrity: sha512-U1U5Hzc2MO0oW3DF+G9qYN0aT7atAou4AgI0XjWz061nyBPbdxkfdhfy5uMgGn6+oLFCfn44ZGbdDqCzVmlOWA==}
+    optionalDependencies:
+      '@types/trusted-types': 2.0.7
+    dev: false
+
   /dunder-proto@1.0.0:
     resolution: {integrity: sha512-9+Sj30DIu+4KvHqMfLUGLFYL2PkURSYMVXJyXe92nFRvlYq5hBjLEhblKB+vkd/WVlUYMWigiY07T91Fkk0+4A==}
     engines: {node: '>= 0.4'}
@@ -1490,6 +1508,10 @@ packages:
   /emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
     dev: true
+
+  /emoji-toolkit@9.0.1:
+    resolution: {integrity: sha512-sMMNqKNLVHXJfIKoPbrRJwtYuysVNC9GlKetr72zE3SSVbHqoeDLWVrxP0uM0AE0qvdl3hbUk+tJhhwXZrDHaw==}
+    dev: false
 
   /emoji-unicode-map@1.1.11:
     resolution: {integrity: sha512-GWcWILFyDfR8AU7FRLhKk0lnvcljoEIXejg+XY3Ogz6/ELaQLMo0m4d9R3i79ikIULVEysHBGPsOEcjcFxtN+w==}
