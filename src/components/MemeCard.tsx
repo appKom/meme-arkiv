@@ -150,7 +150,23 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
       ) : (
         <div className="w-full">
           {content}
+
           {meme.type === "video" && videoElement}
+          {meme.reactions.length > 0 && (
+            <div className="grid w-full grid-cols-2 gap-2 p-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+              {meme.reactions.map(
+                (reaction, index) =>
+                  reaction.url && (
+                    <SlackReaction
+                      key={index}
+                      url={reaction.url}
+                      count={reaction.count}
+                      name={reaction.name}
+                    />
+                  )
+              )}
+            </div>
+          )}
         </div>
       )}
     </article>
