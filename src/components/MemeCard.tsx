@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useFormattedSlackText } from "@/lib/text";
 import ReactMarkdown from "react-markdown";
 import MarkdownComponents from "@/components/Markdown";
+import rehypeRaw from "rehype-raw";
 
 interface Props {
   meme: MemeType | CommentType;
@@ -49,12 +50,14 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
           <ReactMarkdown
             components={MarkdownComponents}
             className="w-full font-bold break-words"
+            rehypePlugins={[rehypeRaw]}
           >
             {formatedSlackText.headerLine}
           </ReactMarkdown>
           <ReactMarkdown
             components={MarkdownComponents}
             className="w-full break-words"
+            rehypePlugins={[rehypeRaw]}
           >
             {formatedSlackText.formattedText}
           </ReactMarkdown>
@@ -77,34 +80,34 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
               className="max-h-[600px] w-full object-contain"
             />
           ) : null}
-
-          {meme.type !== "video" && meme.reactions.length > 0 && (
-            <div className="grid w-full grid-cols-2 gap-2 p-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-              {meme.reactions.map(
-                (reaction, index) =>
-                  reaction.url && (
-                    <SlackReaction
-                      key={index}
-                      url={reaction.url}
-                      count={reaction.count}
-                      name={reaction.name}
-                    />
-                  )
-              )}
-            </div>
-          )}
-
-          {meme.amtComments > 0 && meme.type !== "video" && (
-            <div className="flex w-full justify-center items-center p-2">
-              <span className="flex flex-row gap-1 text-xl items-center">
-                <p className="text-lg font-semibold">{meme.amtComments}</p>
-                <p className="text-gray-600 dark:text-gray-200">
-                  {meme.amtComments === 1 ? "kommentar" : "kommentarer"}
-                </p>
-              </span>
-            </div>
-          )}
         </>
+      )}
+
+      {meme.type !== "video" && redirect && meme.reactions.length > 0 && (
+        <div className="grid w-full grid-cols-2 gap-2 p-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          {meme.reactions.map(
+            (reaction, index) =>
+              reaction.url && (
+                <SlackReaction
+                  key={index}
+                  url={reaction.url}
+                  count={reaction.count}
+                  name={reaction.name}
+                />
+              )
+          )}
+        </div>
+      )}
+
+      {meme.amtComments > 0 && meme.type !== "video" && (
+        <div className="flex w-full justify-center items-center p-2">
+          <span className="flex flex-row gap-1 text-xl items-center">
+            <p className="text-lg font-semibold">{meme.amtComments}</p>
+            <p className="text-gray-600 dark:text-gray-200">
+              {meme.amtComments === 1 ? "kommentar" : "kommentarer"}
+            </p>
+          </span>
+        </div>
       )}
     </>
   );
