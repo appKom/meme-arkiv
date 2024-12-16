@@ -88,20 +88,11 @@ const MemePage = () => {
       )}
 
       <div className="">
-        <HeaderText title="Kommentarer" />
-
-        {comments && comments.length === 0 && <p>Ingen kommentarer.</p>}
+        {comments && comments.length > 0 && <HeaderText title="Kommentarer" />}
 
         {comments.map((comment) => (
           <MemeCard key={comment.commentId} meme={comment} redirect={false} />
         ))}
-
-        {isFetchingNextPage &&
-          Array.from({ length: 2 }, (_, index) => (
-            <div key={index} className="w-full flex flex-col items-center">
-              <MemeCardSkeleton />
-            </div>
-          ))}
 
         <div ref={loadMoreRef} />
       </div>

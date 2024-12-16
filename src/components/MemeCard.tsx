@@ -17,7 +17,6 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
       className="w-full h-auto"
       preload="metadata"
       style={{ display: "block" }}
-      onClick={(e) => e.stopPropagation()}
     >
       <source src={meme.url} type="video/mp4" />
       Your browser does not support the video tag.
