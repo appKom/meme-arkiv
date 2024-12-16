@@ -87,7 +87,7 @@ const MemePage = () => {
         <MemeCard key={meme.id} meme={meme} redirect={false} />
       )}
 
-      <div className="">
+      <div className="w-full flex flex-col items-center">
         {comments && comments.length > 0 && <HeaderText title="Kommentarer" />}
 
         {comments.map((comment) => (
