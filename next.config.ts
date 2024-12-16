@@ -2,9 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [
-      "avatars.slack-edge.com",
-      "infoskjermstorageaccount.blob.core.windows.net",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.slack-edge.com",
+      },
+      {
+        protocol: "https",
+        hostname: "infoskjermstorageaccount.blob.core.windows.net",
+      },
     ],
   },
 };
