@@ -31,7 +31,7 @@ export default function Footer() {
           <div className="flex flex-col items-center space-y-4 md:items-start">
             <h2 className="text-2xl font-bold">Meme Arkiv</h2>
             <a
-              href="mailto:onlinefondet@online.ntnu.no"
+              href="mailto:appkom@online.ntnu.no"
               className="hover:text-orange-600 flex cursor-pointer items-center gap-2 transition-colors"
             >
               <Mail size={18} />
