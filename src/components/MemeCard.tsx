@@ -7,6 +7,7 @@ import { useFormattedSlackText } from "@/lib/text";
 import ReactMarkdown from "react-markdown";
 import MarkdownComponents from "@/components/Markdown";
 import rehypeRaw from "rehype-raw";
+import { ArrowRight } from "lucide-react";
 
 interface Props {
   meme: MemeType | CommentType;
@@ -93,11 +94,12 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
 
       {meme.amtComments > 0 && meme.type !== "video" && (
         <div className="flex w-full justify-center items-center p-2">
-          <span className="flex flex-row gap-1 text-xl items-center">
+          <span className="flex flex-row gap-1 text-xl items-center group">
             <p className="text-lg font-semibold">{meme.amtComments}</p>
             <p className="text-gray-600 dark:text-gray-200">
               {meme.amtComments === 1 ? "kommentar" : "kommentarer"}
             </p>
+            <ArrowRight className="size-6 text-gray-700 dark:text-gray-200 group-hover:translate-x-1 transition-transform duration-200" />
           </span>
         </div>
       )}
@@ -124,11 +126,12 @@ export const MemeCard = ({ meme, redirect = true }: Props) => {
             )}
             {meme.amtComments > 0 && (
               <div className="flex w-full justify-center items-center p-2">
-                <span className="flex flex-row gap-1 text-xl items-center">
+                <span className="flex flex-row gap-1 text-xl items-center group">
                   <p className="text-lg font-semibold">{meme.amtComments}</p>
                   <p className="text-gray-600 dark:text-gray-200">
                     {meme.amtComments === 1 ? "kommentar" : "kommentarer"}
                   </p>
+                  <ArrowRight className="size-6 text-gray-700 dark:text-gray-200 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
               </div>
             )}
